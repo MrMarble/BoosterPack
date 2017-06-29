@@ -1,0 +1,35 @@
+{
+
+	"manifest_version": 2,
+	"name": "Get Booster Pack Odds",
+	"version": "1.0",
+
+	"description": "This extension shows a the booster pack odds of each game",
+	"icons": {
+		"16": "icons/icon16.png",
+		"32": "icons/icon32.png",
+		"64": "icons/icon64.png",
+		"128":"icons/icon128.png"
+	},
+
+	"background": {
+		"scripts": ["js/eventPage.js"],
+		"persistent": false
+	},
+
+	"content_scripts": [{
+		"matches": ["*://*.steamcommunity.com/id/*/badges/*"],
+		"js": ["js/popup.js"]
+	}],
+
+	"page_action": {
+		"default_icon": "icons/icon.png"
+	},
+	"permissions": [
+		"activeTab",
+		"*://*.steamcommunity.com/id/*/badges/*",
+		"tabs",
+		"*://*.steamspy.com/app/*",
+		"declarativeContent"
+	]
+}
